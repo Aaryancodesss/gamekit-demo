@@ -22,8 +22,102 @@ createBtn.addEventListener('click', async () => {
     headers: apiHeaders(),
     body: JSON.stringify({ name })
   });
+
+// ---------- Rooms ----------
+const createRoomBtn = document.getElementById('create-room');
+const listRoomsBtn = document.getElementById('list-rooms');
+const joinRoomBtn = document.getElementById('join-room');
+const viewRoomBtn = document.getElementById('view-room');
+const roomsOutput = document.getElementById('rooms-output');
+const roomDetailOutput = document.getElementById('room-detail-output');
+
+createRoomBtn.addEventListener('click', async () => {
+  const name = document.getElementById('room-name').value.trim();
+  if (!name) return alert('Enter a room name');
+  const res = await fetch(`${API_URL}/rooms`, {
+    method: 'POST',
+    headers: apiHeaders(),
+    body: JSON.stringify({ name })
+  });
+  const data = await res.json();
+  roomsOutput.textContent = JSON.stringify(data, null, 2);
+});
+
+listRoomsBtn.addEventListener('click', async () => {
+  const res = await fetch(`${API_URL}/rooms`);
+  const data = await res.json();
+  roomsOutput.textContent = JSON.stringify(data, null, 2);
+});
+
+joinRoomBtn.addEventListener('click', async () => {
+  const roomId = document.getElementById('room-id').value.trim();
+  const playerId = document.getElementById('mm-player-id').value.trim();
+  if (!roomId || !playerId) return alert('Provide room ID and player ID');
+  const res = await fetch(`${API_URL}/rooms/join`, {
+    method: 'POST',
+    headers: apiHeaders(),
+    body: JSON.stringify({ roomId, playerId })
+  });
+  const data = await res.json();
+  roomDetailOutput.textContent = JSON.stringify(data, null, 2);
+});
+
+viewRoomBtn.addEventListener('click', async () => {
+  const roomId = document.getElementById('room-id').value.trim();
+  if (!roomId) return alert('Enter a room ID');
+  const res = await fetch(`${API_URL}/rooms/${encodeURIComponent(roomId)}`);
+  const data = await res.json();
+  roomDetailOutput.textContent = JSON.stringify(data, null, 2);
+});
   const data = await res.json();
   playerOutput.textContent = JSON.stringify(data, null, 2);
+});
+
+// ---------- Rooms ----------
+const createRoomBtn = document.getElementById('create-room');
+const listRoomsBtn = document.getElementById('list-rooms');
+const joinRoomBtn = document.getElementById('join-room');
+const viewRoomBtn = document.getElementById('view-room');
+const roomsOutput = document.getElementById('rooms-output');
+const roomDetailOutput = document.getElementById('room-detail-output');
+
+createRoomBtn.addEventListener('click', async () => {
+  const name = document.getElementById('room-name').value.trim();
+  if (!name) return alert('Enter a room name');
+  const res = await fetch(`${API_URL}/rooms`, {
+    method: 'POST',
+    headers: apiHeaders(),
+    body: JSON.stringify({ name })
+  });
+  const data = await res.json();
+  roomsOutput.textContent = JSON.stringify(data, null, 2);
+});
+
+listRoomsBtn.addEventListener('click', async () => {
+  const res = await fetch(`${API_URL}/rooms`);
+  const data = await res.json();
+  roomsOutput.textContent = JSON.stringify(data, null, 2);
+});
+
+joinRoomBtn.addEventListener('click', async () => {
+  const roomId = document.getElementById('room-id').value.trim();
+  const playerId = document.getElementById('mm-player-id').value.trim();
+  if (!roomId || !playerId) return alert('Provide room ID and player ID');
+  const res = await fetch(`${API_URL}/rooms/join`, {
+    method: 'POST',
+    headers: apiHeaders(),
+    body: JSON.stringify({ roomId, playerId })
+  });
+  const data = await res.json();
+  roomDetailOutput.textContent = JSON.stringify(data, null, 2);
+});
+
+viewRoomBtn.addEventListener('click', async () => {
+  const roomId = document.getElementById('room-id').value.trim();
+  if (!roomId) return alert('Enter a room ID');
+  const res = await fetch(`${API_URL}/rooms/${encodeURIComponent(roomId)}`);
+  const data = await res.json();
+  roomDetailOutput.textContent = JSON.stringify(data, null, 2);
 });
 
 // ---------- Leaderboard ----------
@@ -40,14 +134,155 @@ submitScoreBtn.addEventListener('click', async () => {
     headers: apiHeaders(),
     body: JSON.stringify({ playerId, score })
   });
+
+// ---------- Rooms ----------
+const createRoomBtn = document.getElementById('create-room');
+const listRoomsBtn = document.getElementById('list-rooms');
+const joinRoomBtn = document.getElementById('join-room');
+const viewRoomBtn = document.getElementById('view-room');
+const roomsOutput = document.getElementById('rooms-output');
+const roomDetailOutput = document.getElementById('room-detail-output');
+
+createRoomBtn.addEventListener('click', async () => {
+  const name = document.getElementById('room-name').value.trim();
+  if (!name) return alert('Enter a room name');
+  const res = await fetch(`${API_URL}/rooms`, {
+    method: 'POST',
+    headers: apiHeaders(),
+    body: JSON.stringify({ name })
+  });
+  const data = await res.json();
+  roomsOutput.textContent = JSON.stringify(data, null, 2);
+});
+
+listRoomsBtn.addEventListener('click', async () => {
+  const res = await fetch(`${API_URL}/rooms`);
+  const data = await res.json();
+  roomsOutput.textContent = JSON.stringify(data, null, 2);
+});
+
+joinRoomBtn.addEventListener('click', async () => {
+  const roomId = document.getElementById('room-id').value.trim();
+  const playerId = document.getElementById('mm-player-id').value.trim();
+  if (!roomId || !playerId) return alert('Provide room ID and player ID');
+  const res = await fetch(`${API_URL}/rooms/join`, {
+    method: 'POST',
+    headers: apiHeaders(),
+    body: JSON.stringify({ roomId, playerId })
+  });
+  const data = await res.json();
+  roomDetailOutput.textContent = JSON.stringify(data, null, 2);
+});
+
+viewRoomBtn.addEventListener('click', async () => {
+  const roomId = document.getElementById('room-id').value.trim();
+  if (!roomId) return alert('Enter a room ID');
+  const res = await fetch(`${API_URL}/rooms/${encodeURIComponent(roomId)}`);
+  const data = await res.json();
+  roomDetailOutput.textContent = JSON.stringify(data, null, 2);
+});
   const data = await res.json();
   lbOutput.textContent = JSON.stringify(data, null, 2);
+});
+
+// ---------- Rooms ----------
+const createRoomBtn = document.getElementById('create-room');
+const listRoomsBtn = document.getElementById('list-rooms');
+const joinRoomBtn = document.getElementById('join-room');
+const viewRoomBtn = document.getElementById('view-room');
+const roomsOutput = document.getElementById('rooms-output');
+const roomDetailOutput = document.getElementById('room-detail-output');
+
+createRoomBtn.addEventListener('click', async () => {
+  const name = document.getElementById('room-name').value.trim();
+  if (!name) return alert('Enter a room name');
+  const res = await fetch(`${API_URL}/rooms`, {
+    method: 'POST',
+    headers: apiHeaders(),
+    body: JSON.stringify({ name })
+  });
+  const data = await res.json();
+  roomsOutput.textContent = JSON.stringify(data, null, 2);
+});
+
+listRoomsBtn.addEventListener('click', async () => {
+  const res = await fetch(`${API_URL}/rooms`);
+  const data = await res.json();
+  roomsOutput.textContent = JSON.stringify(data, null, 2);
+});
+
+joinRoomBtn.addEventListener('click', async () => {
+  const roomId = document.getElementById('room-id').value.trim();
+  const playerId = document.getElementById('mm-player-id').value.trim();
+  if (!roomId || !playerId) return alert('Provide room ID and player ID');
+  const res = await fetch(`${API_URL}/rooms/join`, {
+    method: 'POST',
+    headers: apiHeaders(),
+    body: JSON.stringify({ roomId, playerId })
+  });
+  const data = await res.json();
+  roomDetailOutput.textContent = JSON.stringify(data, null, 2);
+});
+
+viewRoomBtn.addEventListener('click', async () => {
+  const roomId = document.getElementById('room-id').value.trim();
+  if (!roomId) return alert('Enter a room ID');
+  const res = await fetch(`${API_URL}/rooms/${encodeURIComponent(roomId)}`);
+  const data = await res.json();
+  roomDetailOutput.textContent = JSON.stringify(data, null, 2);
 });
 viewBoardBtn.addEventListener('click', async () => {
   const board = document.getElementById('board-name').value.trim();
   const res = await fetch(`${API_URL}/leaderboard/${encodeURIComponent(board)}`);
   const data = await res.json();
   lbOutput.textContent = JSON.stringify(data, null, 2);
+});
+
+// ---------- Rooms ----------
+const createRoomBtn = document.getElementById('create-room');
+const listRoomsBtn = document.getElementById('list-rooms');
+const joinRoomBtn = document.getElementById('join-room');
+const viewRoomBtn = document.getElementById('view-room');
+const roomsOutput = document.getElementById('rooms-output');
+const roomDetailOutput = document.getElementById('room-detail-output');
+
+createRoomBtn.addEventListener('click', async () => {
+  const name = document.getElementById('room-name').value.trim();
+  if (!name) return alert('Enter a room name');
+  const res = await fetch(`${API_URL}/rooms`, {
+    method: 'POST',
+    headers: apiHeaders(),
+    body: JSON.stringify({ name })
+  });
+  const data = await res.json();
+  roomsOutput.textContent = JSON.stringify(data, null, 2);
+});
+
+listRoomsBtn.addEventListener('click', async () => {
+  const res = await fetch(`${API_URL}/rooms`);
+  const data = await res.json();
+  roomsOutput.textContent = JSON.stringify(data, null, 2);
+});
+
+joinRoomBtn.addEventListener('click', async () => {
+  const roomId = document.getElementById('room-id').value.trim();
+  const playerId = document.getElementById('mm-player-id').value.trim();
+  if (!roomId || !playerId) return alert('Provide room ID and player ID');
+  const res = await fetch(`${API_URL}/rooms/join`, {
+    method: 'POST',
+    headers: apiHeaders(),
+    body: JSON.stringify({ roomId, playerId })
+  });
+  const data = await res.json();
+  roomDetailOutput.textContent = JSON.stringify(data, null, 2);
+});
+
+viewRoomBtn.addEventListener('click', async () => {
+  const roomId = document.getElementById('room-id').value.trim();
+  if (!roomId) return alert('Enter a room ID');
+  const res = await fetch(`${API_URL}/rooms/${encodeURIComponent(roomId)}`);
+  const data = await res.json();
+  roomDetailOutput.textContent = JSON.stringify(data, null, 2);
 });
 
 // ---------- Saves ----------
@@ -67,14 +302,155 @@ saveBtn.addEventListener('click', async () => {
     headers: apiHeaders(),
     body: JSON.stringify(payload)
   });
+
+// ---------- Rooms ----------
+const createRoomBtn = document.getElementById('create-room');
+const listRoomsBtn = document.getElementById('list-rooms');
+const joinRoomBtn = document.getElementById('join-room');
+const viewRoomBtn = document.getElementById('view-room');
+const roomsOutput = document.getElementById('rooms-output');
+const roomDetailOutput = document.getElementById('room-detail-output');
+
+createRoomBtn.addEventListener('click', async () => {
+  const name = document.getElementById('room-name').value.trim();
+  if (!name) return alert('Enter a room name');
+  const res = await fetch(`${API_URL}/rooms`, {
+    method: 'POST',
+    headers: apiHeaders(),
+    body: JSON.stringify({ name })
+  });
+  const data = await res.json();
+  roomsOutput.textContent = JSON.stringify(data, null, 2);
+});
+
+listRoomsBtn.addEventListener('click', async () => {
+  const res = await fetch(`${API_URL}/rooms`);
+  const data = await res.json();
+  roomsOutput.textContent = JSON.stringify(data, null, 2);
+});
+
+joinRoomBtn.addEventListener('click', async () => {
+  const roomId = document.getElementById('room-id').value.trim();
+  const playerId = document.getElementById('mm-player-id').value.trim();
+  if (!roomId || !playerId) return alert('Provide room ID and player ID');
+  const res = await fetch(`${API_URL}/rooms/join`, {
+    method: 'POST',
+    headers: apiHeaders(),
+    body: JSON.stringify({ roomId, playerId })
+  });
+  const data = await res.json();
+  roomDetailOutput.textContent = JSON.stringify(data, null, 2);
+});
+
+viewRoomBtn.addEventListener('click', async () => {
+  const roomId = document.getElementById('room-id').value.trim();
+  if (!roomId) return alert('Enter a room ID');
+  const res = await fetch(`${API_URL}/rooms/${encodeURIComponent(roomId)}`);
+  const data = await res.json();
+  roomDetailOutput.textContent = JSON.stringify(data, null, 2);
+});
   const data = await res.json();
   savesOutput.textContent = JSON.stringify(data, null, 2);
+});
+
+// ---------- Rooms ----------
+const createRoomBtn = document.getElementById('create-room');
+const listRoomsBtn = document.getElementById('list-rooms');
+const joinRoomBtn = document.getElementById('join-room');
+const viewRoomBtn = document.getElementById('view-room');
+const roomsOutput = document.getElementById('rooms-output');
+const roomDetailOutput = document.getElementById('room-detail-output');
+
+createRoomBtn.addEventListener('click', async () => {
+  const name = document.getElementById('room-name').value.trim();
+  if (!name) return alert('Enter a room name');
+  const res = await fetch(`${API_URL}/rooms`, {
+    method: 'POST',
+    headers: apiHeaders(),
+    body: JSON.stringify({ name })
+  });
+  const data = await res.json();
+  roomsOutput.textContent = JSON.stringify(data, null, 2);
+});
+
+listRoomsBtn.addEventListener('click', async () => {
+  const res = await fetch(`${API_URL}/rooms`);
+  const data = await res.json();
+  roomsOutput.textContent = JSON.stringify(data, null, 2);
+});
+
+joinRoomBtn.addEventListener('click', async () => {
+  const roomId = document.getElementById('room-id').value.trim();
+  const playerId = document.getElementById('mm-player-id').value.trim();
+  if (!roomId || !playerId) return alert('Provide room ID and player ID');
+  const res = await fetch(`${API_URL}/rooms/join`, {
+    method: 'POST',
+    headers: apiHeaders(),
+    body: JSON.stringify({ roomId, playerId })
+  });
+  const data = await res.json();
+  roomDetailOutput.textContent = JSON.stringify(data, null, 2);
+});
+
+viewRoomBtn.addEventListener('click', async () => {
+  const roomId = document.getElementById('room-id').value.trim();
+  if (!roomId) return alert('Enter a room ID');
+  const res = await fetch(`${API_URL}/rooms/${encodeURIComponent(roomId)}`);
+  const data = await res.json();
+  roomDetailOutput.textContent = JSON.stringify(data, null, 2);
 });
 loadBtn.addEventListener('click', async () => {
   const playerId = document.getElementById('save-player-id').value.trim();
   const res = await fetch(`${API_URL}/saves/${encodeURIComponent(playerId)}`);
   const data = await res.json();
   savesOutput.textContent = JSON.stringify(data, null, 2);
+});
+
+// ---------- Rooms ----------
+const createRoomBtn = document.getElementById('create-room');
+const listRoomsBtn = document.getElementById('list-rooms');
+const joinRoomBtn = document.getElementById('join-room');
+const viewRoomBtn = document.getElementById('view-room');
+const roomsOutput = document.getElementById('rooms-output');
+const roomDetailOutput = document.getElementById('room-detail-output');
+
+createRoomBtn.addEventListener('click', async () => {
+  const name = document.getElementById('room-name').value.trim();
+  if (!name) return alert('Enter a room name');
+  const res = await fetch(`${API_URL}/rooms`, {
+    method: 'POST',
+    headers: apiHeaders(),
+    body: JSON.stringify({ name })
+  });
+  const data = await res.json();
+  roomsOutput.textContent = JSON.stringify(data, null, 2);
+});
+
+listRoomsBtn.addEventListener('click', async () => {
+  const res = await fetch(`${API_URL}/rooms`);
+  const data = await res.json();
+  roomsOutput.textContent = JSON.stringify(data, null, 2);
+});
+
+joinRoomBtn.addEventListener('click', async () => {
+  const roomId = document.getElementById('room-id').value.trim();
+  const playerId = document.getElementById('mm-player-id').value.trim();
+  if (!roomId || !playerId) return alert('Provide room ID and player ID');
+  const res = await fetch(`${API_URL}/rooms/join`, {
+    method: 'POST',
+    headers: apiHeaders(),
+    body: JSON.stringify({ roomId, playerId })
+  });
+  const data = await res.json();
+  roomDetailOutput.textContent = JSON.stringify(data, null, 2);
+});
+
+viewRoomBtn.addEventListener('click', async () => {
+  const roomId = document.getElementById('room-id').value.trim();
+  if (!roomId) return alert('Enter a room ID');
+  const res = await fetch(`${API_URL}/rooms/${encodeURIComponent(roomId)}`);
+  const data = await res.json();
+  roomDetailOutput.textContent = JSON.stringify(data, null, 2);
 });
 
 // ---------- Matchmaking ----------
@@ -91,8 +467,102 @@ joinBtn.addEventListener('click', async () => {
     headers: apiHeaders(),
     body: JSON.stringify({ playerId, rating })
   });
+
+// ---------- Rooms ----------
+const createRoomBtn = document.getElementById('create-room');
+const listRoomsBtn = document.getElementById('list-rooms');
+const joinRoomBtn = document.getElementById('join-room');
+const viewRoomBtn = document.getElementById('view-room');
+const roomsOutput = document.getElementById('rooms-output');
+const roomDetailOutput = document.getElementById('room-detail-output');
+
+createRoomBtn.addEventListener('click', async () => {
+  const name = document.getElementById('room-name').value.trim();
+  if (!name) return alert('Enter a room name');
+  const res = await fetch(`${API_URL}/rooms`, {
+    method: 'POST',
+    headers: apiHeaders(),
+    body: JSON.stringify({ name })
+  });
+  const data = await res.json();
+  roomsOutput.textContent = JSON.stringify(data, null, 2);
+});
+
+listRoomsBtn.addEventListener('click', async () => {
+  const res = await fetch(`${API_URL}/rooms`);
+  const data = await res.json();
+  roomsOutput.textContent = JSON.stringify(data, null, 2);
+});
+
+joinRoomBtn.addEventListener('click', async () => {
+  const roomId = document.getElementById('room-id').value.trim();
+  const playerId = document.getElementById('mm-player-id').value.trim();
+  if (!roomId || !playerId) return alert('Provide room ID and player ID');
+  const res = await fetch(`${API_URL}/rooms/join`, {
+    method: 'POST',
+    headers: apiHeaders(),
+    body: JSON.stringify({ roomId, playerId })
+  });
+  const data = await res.json();
+  roomDetailOutput.textContent = JSON.stringify(data, null, 2);
+});
+
+viewRoomBtn.addEventListener('click', async () => {
+  const roomId = document.getElementById('room-id').value.trim();
+  if (!roomId) return alert('Enter a room ID');
+  const res = await fetch(`${API_URL}/rooms/${encodeURIComponent(roomId)}`);
+  const data = await res.json();
+  roomDetailOutput.textContent = JSON.stringify(data, null, 2);
+});
   const data = await res.json();
   mmOutput.textContent = JSON.stringify(data, null, 2);
+});
+
+// ---------- Rooms ----------
+const createRoomBtn = document.getElementById('create-room');
+const listRoomsBtn = document.getElementById('list-rooms');
+const joinRoomBtn = document.getElementById('join-room');
+const viewRoomBtn = document.getElementById('view-room');
+const roomsOutput = document.getElementById('rooms-output');
+const roomDetailOutput = document.getElementById('room-detail-output');
+
+createRoomBtn.addEventListener('click', async () => {
+  const name = document.getElementById('room-name').value.trim();
+  if (!name) return alert('Enter a room name');
+  const res = await fetch(`${API_URL}/rooms`, {
+    method: 'POST',
+    headers: apiHeaders(),
+    body: JSON.stringify({ name })
+  });
+  const data = await res.json();
+  roomsOutput.textContent = JSON.stringify(data, null, 2);
+});
+
+listRoomsBtn.addEventListener('click', async () => {
+  const res = await fetch(`${API_URL}/rooms`);
+  const data = await res.json();
+  roomsOutput.textContent = JSON.stringify(data, null, 2);
+});
+
+joinRoomBtn.addEventListener('click', async () => {
+  const roomId = document.getElementById('room-id').value.trim();
+  const playerId = document.getElementById('mm-player-id').value.trim();
+  if (!roomId || !playerId) return alert('Provide room ID and player ID');
+  const res = await fetch(`${API_URL}/rooms/join`, {
+    method: 'POST',
+    headers: apiHeaders(),
+    body: JSON.stringify({ roomId, playerId })
+  });
+  const data = await res.json();
+  roomDetailOutput.textContent = JSON.stringify(data, null, 2);
+});
+
+viewRoomBtn.addEventListener('click', async () => {
+  const roomId = document.getElementById('room-id').value.trim();
+  if (!roomId) return alert('Enter a room ID');
+  const res = await fetch(`${API_URL}/rooms/${encodeURIComponent(roomId)}`);
+  const data = await res.json();
+  roomDetailOutput.textContent = JSON.stringify(data, null, 2);
 });
 statusBtn.addEventListener('click', async () => {
   const playerId = document.getElementById('mm-player-id').value.trim();
@@ -100,6 +570,53 @@ statusBtn.addEventListener('click', async () => {
   const res = await fetch(`${API_URL}/matchmaking/status/${encodeURIComponent(playerId)}`);
   const data = await res.json();
   mmOutput.textContent = JSON.stringify(data, null, 2);
+});
+
+// ---------- Rooms ----------
+const createRoomBtn = document.getElementById('create-room');
+const listRoomsBtn = document.getElementById('list-rooms');
+const joinRoomBtn = document.getElementById('join-room');
+const viewRoomBtn = document.getElementById('view-room');
+const roomsOutput = document.getElementById('rooms-output');
+const roomDetailOutput = document.getElementById('room-detail-output');
+
+createRoomBtn.addEventListener('click', async () => {
+  const name = document.getElementById('room-name').value.trim();
+  if (!name) return alert('Enter a room name');
+  const res = await fetch(`${API_URL}/rooms`, {
+    method: 'POST',
+    headers: apiHeaders(),
+    body: JSON.stringify({ name })
+  });
+  const data = await res.json();
+  roomsOutput.textContent = JSON.stringify(data, null, 2);
+});
+
+listRoomsBtn.addEventListener('click', async () => {
+  const res = await fetch(`${API_URL}/rooms`);
+  const data = await res.json();
+  roomsOutput.textContent = JSON.stringify(data, null, 2);
+});
+
+joinRoomBtn.addEventListener('click', async () => {
+  const roomId = document.getElementById('room-id').value.trim();
+  const playerId = document.getElementById('mm-player-id').value.trim();
+  if (!roomId || !playerId) return alert('Provide room ID and player ID');
+  const res = await fetch(`${API_URL}/rooms/join`, {
+    method: 'POST',
+    headers: apiHeaders(),
+    body: JSON.stringify({ roomId, playerId })
+  });
+  const data = await res.json();
+  roomDetailOutput.textContent = JSON.stringify(data, null, 2);
+});
+
+viewRoomBtn.addEventListener('click', async () => {
+  const roomId = document.getElementById('room-id').value.trim();
+  if (!roomId) return alert('Enter a room ID');
+  const res = await fetch(`${API_URL}/rooms/${encodeURIComponent(roomId)}`);
+  const data = await res.json();
+  roomDetailOutput.textContent = JSON.stringify(data, null, 2);
 });
 leaveBtn.addEventListener('click', async () => {
   const playerId = document.getElementById('mm-player-id').value.trim();
@@ -109,6 +626,100 @@ leaveBtn.addEventListener('click', async () => {
     headers: apiHeaders(),
     body: JSON.stringify({ playerId })
   });
+
+// ---------- Rooms ----------
+const createRoomBtn = document.getElementById('create-room');
+const listRoomsBtn = document.getElementById('list-rooms');
+const joinRoomBtn = document.getElementById('join-room');
+const viewRoomBtn = document.getElementById('view-room');
+const roomsOutput = document.getElementById('rooms-output');
+const roomDetailOutput = document.getElementById('room-detail-output');
+
+createRoomBtn.addEventListener('click', async () => {
+  const name = document.getElementById('room-name').value.trim();
+  if (!name) return alert('Enter a room name');
+  const res = await fetch(`${API_URL}/rooms`, {
+    method: 'POST',
+    headers: apiHeaders(),
+    body: JSON.stringify({ name })
+  });
+  const data = await res.json();
+  roomsOutput.textContent = JSON.stringify(data, null, 2);
+});
+
+listRoomsBtn.addEventListener('click', async () => {
+  const res = await fetch(`${API_URL}/rooms`);
+  const data = await res.json();
+  roomsOutput.textContent = JSON.stringify(data, null, 2);
+});
+
+joinRoomBtn.addEventListener('click', async () => {
+  const roomId = document.getElementById('room-id').value.trim();
+  const playerId = document.getElementById('mm-player-id').value.trim();
+  if (!roomId || !playerId) return alert('Provide room ID and player ID');
+  const res = await fetch(`${API_URL}/rooms/join`, {
+    method: 'POST',
+    headers: apiHeaders(),
+    body: JSON.stringify({ roomId, playerId })
+  });
+  const data = await res.json();
+  roomDetailOutput.textContent = JSON.stringify(data, null, 2);
+});
+
+viewRoomBtn.addEventListener('click', async () => {
+  const roomId = document.getElementById('room-id').value.trim();
+  if (!roomId) return alert('Enter a room ID');
+  const res = await fetch(`${API_URL}/rooms/${encodeURIComponent(roomId)}`);
+  const data = await res.json();
+  roomDetailOutput.textContent = JSON.stringify(data, null, 2);
+});
   const data = await res.json();
   mmOutput.textContent = JSON.stringify(data, null, 2);
+});
+
+// ---------- Rooms ----------
+const createRoomBtn = document.getElementById('create-room');
+const listRoomsBtn = document.getElementById('list-rooms');
+const joinRoomBtn = document.getElementById('join-room');
+const viewRoomBtn = document.getElementById('view-room');
+const roomsOutput = document.getElementById('rooms-output');
+const roomDetailOutput = document.getElementById('room-detail-output');
+
+createRoomBtn.addEventListener('click', async () => {
+  const name = document.getElementById('room-name').value.trim();
+  if (!name) return alert('Enter a room name');
+  const res = await fetch(`${API_URL}/rooms`, {
+    method: 'POST',
+    headers: apiHeaders(),
+    body: JSON.stringify({ name })
+  });
+  const data = await res.json();
+  roomsOutput.textContent = JSON.stringify(data, null, 2);
+});
+
+listRoomsBtn.addEventListener('click', async () => {
+  const res = await fetch(`${API_URL}/rooms`);
+  const data = await res.json();
+  roomsOutput.textContent = JSON.stringify(data, null, 2);
+});
+
+joinRoomBtn.addEventListener('click', async () => {
+  const roomId = document.getElementById('room-id').value.trim();
+  const playerId = document.getElementById('mm-player-id').value.trim();
+  if (!roomId || !playerId) return alert('Provide room ID and player ID');
+  const res = await fetch(`${API_URL}/rooms/join`, {
+    method: 'POST',
+    headers: apiHeaders(),
+    body: JSON.stringify({ roomId, playerId })
+  });
+  const data = await res.json();
+  roomDetailOutput.textContent = JSON.stringify(data, null, 2);
+});
+
+viewRoomBtn.addEventListener('click', async () => {
+  const roomId = document.getElementById('room-id').value.trim();
+  if (!roomId) return alert('Enter a room ID');
+  const res = await fetch(`${API_URL}/rooms/${encodeURIComponent(roomId)}`);
+  const data = await res.json();
+  roomDetailOutput.textContent = JSON.stringify(data, null, 2);
 });
