@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>express‑gamekit Demo</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 2rem; }
+    h2 { margin-top: 2rem; }
+    .section { border: 1px solid #ccc; padding: 1rem; margin-bottom: 1rem; }
+    label { display: block; margin-top: 0.5rem; }
+    input, button { margin-top: 0.3rem; }
+    pre { background:#f3f3f3; padding:0.5rem; overflow:auto; }
+  </style>
+</head>
+<body>
+  <h1>express‑gamekit Demo UI</h1>
+  <p>All API calls include <code>x-api-key: demo-secret</code> (hard‑coded for the demo).</p>
+
+  <div class="section" id="players-section">
+    <h2>Players</h2>
+    <label>Name: <input type="text" id="player-name" /></label>
+    <button id="create-player">Create Player</button>
+    <pre id="player-output"></pre>
+  </div>
+
+  <div class="section" id="leaderboard-section">
+    <h2>Leaderboard</h2>
+    <label>Board name: <input type="text" id="board-name" value="global" /></label>
+    <label>Player ID: <input type="text" id="lb-player-id" /></label>
+    <label>Score: <input type="number" id="lb-score" /></label>
+    <button id="submit-score">Submit Score</button>
+    <button id="view-board">View Top 10</button>
+    <pre id="leaderboard-output"></pre>
+  </div>
+
+  <div class="section" id="saves-section">
+    <h2>Saves</h2>
+    <label>Player ID: <input type="text" id="save-player-id" /></label>
+    <label>JSON data: <textarea id="save-data" rows="4" cols="50">{ "level": 1 }</textarea></label>
+    <button id="save-data-btn">Save</button>
+    <button id="load-data-btn">Load</button>
+    <pre id="saves-output"></pre>
+  </div>
+
+  <div class="section" id="matchmaking-section">
+    <h2>Matchmaking</h2>
+    <label>Player ID: <input type="text" id="mm-player-id" /></label>
+    <label>Rating: <input type="number" id="mm-rating" /></label>
+    <button id="join-queue">Join Queue</button>
+    <button id="check-status">Check Status</button>
+    <button id="leave-queue">Leave Queue</button>
+    <pre id="mm-output"></pre>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
